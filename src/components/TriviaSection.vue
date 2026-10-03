@@ -93,7 +93,7 @@ const icsHref = (n) => {
             </ul>
 
             <div class="ticket__actions">
-              <a :href="reserveHref(next)" class="btn btn--solid">Reserve a team table</a>
+              <!-- <a :href="reserveHref(next)" class="btn btn--solid">Reserve a team table</a> -->
               <a :href="icsHref(next)" :download="`trivia-${next.date}.ics`" class="ticket__cal">
                 Add to calendar <span aria-hidden="true">→</span>
               </a>
