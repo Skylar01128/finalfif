@@ -65,8 +65,7 @@ const icsHref = (n) => {
         <p v-reveal class="eyebrow">Trivia night · {{ trivia.cadence }}</p>
         <h2 v-reveal="100" class="h-section">Think fast. <em>Sip slow.</em></h2>
         <p v-reveal="150" class="lede">
-          Grab a latte, round up your team and test what you know. A new theme every night, hosted
-          among the blooms from {{ timeRange }}.
+          Grab a latte, round up your team and test what you know. A new theme every night, from {{ timeRange }}.
         </p>
       </header>
 

@@ -128,5 +128,9 @@ const reasons = [
     border-left: 0;
     border-top: 1px solid var(--line);
   }
+  .reason__art,
+  .reason__title {
+    align-self: center;
+  }
 }
 </style>

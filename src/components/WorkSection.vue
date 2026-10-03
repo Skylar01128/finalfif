@@ -3,8 +3,9 @@ import PhotoFrame from './PhotoFrame.vue'
 
 const amenities = [
   { icon: 'wifi', title: 'Fast, free Wi-Fi', text: 'Strong enough for video calls, no time limit.' },
-  { icon: 'plug', title: 'Outlets at every window seat', text: 'Plus a long communal table with power strips.' },
+  { icon: 'plug', title: 'Outlets at every window seat', text: 'Plus outlets in the backroom and lobby.' },
   { icon: 'clock', title: 'Quiet hours, 7–10am weekdays', text: 'Soft music, low chatter, focus-friendly.' },
+  { icon: 'sparkle', title: 'Clean Restrooms', text: 'We take pride in provideing spotless restrooms for our guests.' },
   // { icon: 'cup', title: 'Bottomless drip on laptop days', text: '$5 all day — just ask at the counter.' },
 ]
 
@@ -13,6 +14,7 @@ const icons = {
   plug: 'M9 3v5M15 3v5M6 8h12v3a6 6 0 0 1-12 0zM12 17v4',
   clock: 'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18zM12 7v5l3 2',
   cup: 'M5 9h12v5a5 5 0 0 1-5 5h-2a5 5 0 0 1-5-5zM17 10h1.5a2.5 2.5 0 0 1 0 5H17M9 3v2M13 3v2',
+  sparkle: 'M10 4c.6 4.4 2.6 6.4 7 7-4.4.6-6.4 2.6-7 7-.6-4.4-2.6-6.4-7-7 4.4-.6 6.4-2.6 7-7zM18 2.5c.3 1.6.9 2.2 2.5 2.5-1.6.3-2.2.9-2.5 2.5-.3-1.6-.9-2.2-2.5-2.5 1.6-.3 2.2-.9 2.5-2.5z',
 }
 </script>
 

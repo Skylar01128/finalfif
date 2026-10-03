@@ -55,7 +55,7 @@ export const menu = {
             { name: 'Frosted Cookie', desc: 'Sweet cream, FIF brown sugar cinnamon syrup and espresso', prices: ['4.85', '5.85', '6.85'] },
             { name: 'Coconut Bliss', desc: 'Chocolate milk, espresso, coconut syrup, cold foam & chocolate drizzle', prices: ['4.70', '5.70', '6.70'] },
             { name: 'Coconut Cream Cold Brew', desc: 'Cold brew, half & half or sweet cream and coconut cold foam', prices: ['5.45', '6.45', null] },
-            { name: 'Salted Caramel Cheesecake', desc: 'Cold brew, sweet cream, cold foam and caramel drizzle', prices: ['5.45', '6.45', null] },
+            { name: 'Salted Caramel Cheesecake', desc: 'Cold brew, sweet cream, cold foam and caramel drizzle', prices: ['5.45', '6.45', null], signature: true },
             { name: 'Pour Over', desc: '28oz · serves up to 4', price: '8.50' },
             { name: 'French Press', desc: '17oz · serves up to 2', price: '5.50 – 8.75' },
           ],
@@ -145,7 +145,7 @@ export const menu = {
           items: [
             { name: 'Egg Bites (2)', desc: 'Western, ham & cheese, or cheese · while supplies last', price: '4.75' },
             { name: 'Ham & Swiss Croissant', desc: 'Ham & Swiss baked into a butter croissant · while supplies last', price: '5.95' },
-            { name: 'Biscuits & Gravy', desc: 'House made biscuits and gravy · Only available on Saturdays', price: '5.95' },
+            { name: 'Biscuits & Gravy', desc: 'House made biscuits and gravy · Only available on Saturdays', price: '5.95', signature: true },
           ],
         },
       ],
