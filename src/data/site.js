@@ -107,9 +107,9 @@ export const reviews = [
 
 export const events = {
   slides: [
-    { src: '/images/event-1.jpg', tone: 'green', caption: 'Bridal & baby showers' },
-    { src: '/images/event-2.jpg', tone: 'petal', caption: 'Birthday brunches' },
-    { src: '/images/event-3.jpg', tone: 'oat', caption: 'Flower-arranging workshops' },
+    { src: '/public/images/bridal.jpg', tone: 'green', caption: 'Bridal & baby showers' },
+    { src: '/public/images/grad.jpg', tone: 'petal', caption: 'Birthday brunches' },
+    { src: '/public/images/trivia.jpg', tone: 'oat', caption: 'Bi-Weekly Trivia Nights' },
   ],
   types: ['Showers', 'Birthdays', 'Workshops', 'Book clubs'],
   details: [
@@ -128,9 +128,9 @@ export const trivia = {
   end: '21:00',
   details: ['Free to play', 'Prizes for the top 3', 'Seating First Come First Served'],
   nights: [
-    { date: '2026-10-08', theme: "'90s Nostalgia", blurb: 'Boy bands, Blockbuster, Tamagotchis and the TV you weren\'t supposed to stay up for.' },
-    { date: '2026-10-22', theme: 'Horror Movies', blurb: 'Final girls, famous last words and the scores that still give you chills.' },
-    { date: '2026-11-05', theme: 'Disney & Pixar', blurb: 'From the castle to the toy box: songs, sidekicks and deep-cut villains.' },
-    { date: '2026-11-19', theme: 'Friendsgiving', blurb: 'Food, drink and a few rounds on the sitcom that named the holiday.' },
+    { date: '2026-10-08', theme: 'Horror Movies', blurb: 'Final girls, famous last words and the scores that still give you chills.' },
+    { date: '2026-10-22', theme: "Halloween General", blurb: 'Come in costume and find out how much you really know about the spookiest night of the year.' },
+    { date: '2026-11-05', theme: 'Gilmore Girls', blurb: "Think you can keep up with Lorelai's pop-culture references? Pour a coffee and prove it." },
+    { date: '2026-11-19', theme: 'Friends', blurb: 'A Friendsgiving warm-up, all about the show that made the coffee shop the place to be.' },
   ],
 }

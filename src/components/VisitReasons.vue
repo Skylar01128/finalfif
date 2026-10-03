@@ -19,7 +19,7 @@ const reasons = [
   {
     art: 'bouquet',
     title: 'Celebrate',
-    text: 'Showers, birthdays and workshops, dressed in seasonal florals and a pastry table to match.',
+    text: 'Showers, birthdays and workshops, dressed in seasonal florals.',
     href: '#events',
     cta: 'Plan an event',
   },

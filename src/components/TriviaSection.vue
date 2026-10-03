@@ -125,6 +125,7 @@ const icsHref = (n) => {
               <div>
                 <p class="later__theme">{{ n.theme }}</p>
                 <p class="later__meta">{{ parts(n.date).weekday }} · {{ formatTime(trivia.start) }}</p>
+                <p class="later__meta">{{ n.blurb }}</p>
               </div>
             </li>
           </ol>
