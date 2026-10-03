@@ -7,6 +7,7 @@ const leftLinks = [
   { href: '#events', label: 'Events' },
 ]
 const rightLinks = [
+  { href: '#trivia', label: 'Trivia' },
   { href: '#reviews', label: 'Reviews' },
   { href: '#visit', label: 'Visit' },
 ]

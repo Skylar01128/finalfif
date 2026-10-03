@@ -117,3 +117,20 @@ export const events = {
     'Available Mon-Sat after café hours and all day Sunday'
   ],
 }
+
+// Trivia nights. Add a night by appending { date, theme, blurb }; dates are
+// YYYY-MM-DD in the shop's time zone. Past nights drop off the site
+// automatically, and the soonest upcoming one becomes the featured card.
+// TODO: replace these placeholder themes, dates and details with the real lineup.
+export const trivia = {
+  cadence: 'Every other Thursday',
+  start: '19:00',
+  end: '21:00',
+  details: ['Free to play', 'Prizes for the top 3', 'Seating First Come First Served'],
+  nights: [
+    { date: '2026-10-08', theme: "'90s Nostalgia", blurb: 'Boy bands, Blockbuster, Tamagotchis and the TV you weren\'t supposed to stay up for.' },
+    { date: '2026-10-22', theme: 'Horror Movies', blurb: 'Final girls, famous last words and the scores that still give you chills.' },
+    { date: '2026-11-05', theme: 'Disney & Pixar', blurb: 'From the castle to the toy box: songs, sidekicks and deep-cut villains.' },
+    { date: '2026-11-19', theme: 'Friendsgiving', blurb: 'Food, drink and a few rounds on the sitcom that named the holiday.' },
+  ],
+}
