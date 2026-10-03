@@ -5,7 +5,7 @@ const amenities = [
   { icon: 'wifi', title: 'Fast, free Wi-Fi', text: 'Strong enough for video calls, no time limit.' },
   { icon: 'plug', title: 'Outlets at every window seat', text: 'Plus a long communal table with power strips.' },
   { icon: 'clock', title: 'Quiet hours, 7–10am weekdays', text: 'Soft music, low chatter, focus-friendly.' },
-  { icon: 'cup', title: 'Bottomless drip on laptop days', text: '$5 all day — just ask at the counter.' },
+  // { icon: 'cup', title: 'Bottomless drip on laptop days', text: '$5 all day — just ask at the counter.' },
 ]
 
 const icons = {
@@ -47,7 +47,7 @@ const icons = {
           </li>
         </ul>
 
-        <p v-reveal="500" class="work__fine">On busy weekends we ask laptops to share the big tables. Thank you!</p>
+        <!-- <p v-reveal="500" class="work__fine">On busy weekends we ask laptops to share the big tables. Thank you!</p> -->
       </div>
     </div>
   </section>

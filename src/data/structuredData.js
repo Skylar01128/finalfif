@@ -12,6 +12,17 @@ function parseCityLine(line) {
   return { locality, region, postalCode }
 }
 
+// One Offer per available size, or a single Offer for one-price items.
+// A range like "5.50 – 8.75" is reported as its lowest price.
+function offersFor(item, sizes = []) {
+  if (!item.prices) {
+    return { '@type': 'Offer', price: item.price.split(/\s*–\s*/)[0], priceCurrency: 'USD' }
+  }
+  return item.prices
+    .map((price, i) => price && { '@type': 'Offer', name: sizes[i], price, priceCurrency: 'USD' })
+    .filter(Boolean)
+}
+
 export function cafeSchema(site, menu) {
   const { locality, region, postalCode } = parseCityLine(site.address.line2)
 
@@ -47,16 +58,19 @@ export function cafeSchema(site, menu) {
       })),
     hasMenu: {
       '@type': 'Menu',
-      hasMenuSection: menu.map((group) => ({
-        '@type': 'MenuSection',
-        name: group.title,
-        hasMenuItem: group.items.map((item) => ({
-          '@type': 'MenuItem',
-          name: item.name,
-          ...(item.desc && { description: item.desc }),
-          offers: { '@type': 'Offer', price: item.price, priceCurrency: 'USD' },
+      hasMenuSection: menu.tabs
+        .flatMap((tab) => tab.groups)
+        .filter((group) => group.items)
+        .map((group) => ({
+          '@type': 'MenuSection',
+          name: group.title,
+          hasMenuItem: group.items.map((item) => ({
+            '@type': 'MenuItem',
+            name: item.name,
+            ...(item.desc && { description: item.desc }),
+            offers: offersFor(item, group.sizes),
+          })),
         })),
-      })),
     },
   }
 }

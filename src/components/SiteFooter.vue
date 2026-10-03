@@ -24,14 +24,14 @@ const tel = `tel:${site.phone.replace(/[^\d+]/g, '')}`
           <p class="footer__logo">Flower <em>in</em> Flour</p>
         </div>
 
-        <form class="footer__news" @submit.prevent="subscribe">
+        <!-- <form class="footer__news" @submit.prevent="subscribe">
           <label for="news-email" class="footer__label">Seasonal menus, workshops &amp; events — once a month.</label>
           <div v-if="!subscribed" class="footer__field">
             <input id="news-email" v-model="email" type="email" required placeholder="you@email.com" autocomplete="email" />
             <button type="submit">Subscribe</button>
           </div>
           <p v-else class="footer__thanks" role="status">Thank you! Watch your inbox for fresh blooms.</p>
-        </form>
+        </form> -->
       </div>
 
       <div class="footer__cols">

@@ -22,40 +22,136 @@ export const site = {
   ],
 }
 
-export const menu = [
-  {
-    title: 'Coffee & Tea',
-    items: [
-      { name: 'Espresso', price: '3.25' },
-      { name: 'Cortado', price: '4.25' },
-      { name: 'Cappuccino', price: '4.75' },
-      { name: 'Latte', price: '5.25', desc: 'Hot or iced' },
-      { name: 'Drip coffee', price: '3.00', desc: 'Rotating single origin' },
-      { name: 'Loose-leaf tea', price: '3.75', desc: 'Earl grey, chamomile, jasmine green' },
-    ],
-  },
-  {
-    title: 'Floral Specials',
-    items: [
-      { name: 'Lavender Honey Latte', price: '6.25', desc: 'House lavender syrup, wildflower honey', signature: true },
-      { name: 'Rose Cardamom Cortado', price: '5.75', desc: 'Rosewater, cardamom, dusted petals', signature: true },
-      { name: 'Hibiscus Cold Brew', price: '5.75', desc: 'Cold brew over hibiscus-citrus ice' },
-      { name: 'Elderflower Tonic', price: '6.00', desc: 'Espresso, elderflower, sparkling tonic' },
-      { name: 'Chamomile Steamer', price: '4.75', desc: 'Caffeine-free, vanilla bean, oat milk' },
-    ],
-  },
-  {
-    title: 'From the Oven',
-    items: [
-      { name: 'Rose Pistachio Croissant', price: '5.50', signature: true },
-      { name: 'Lemon Elderflower Scone', price: '4.25' },
-      { name: 'Lavender Shortbread', price: '3.00' },
-      { name: 'Honey Almond Morning Bun', price: '4.75' },
-      { name: 'Seasonal Galette', price: '6.00', desc: "Ask what's blooming" },
-      { name: 'Savory Herb Quiche', price: '8.50' },
-    ],
-  },
-]
+// The menu is split into tabs, each holding one or more groups.
+// - A group with `sizes` lines its items' `prices` up under those size
+//   columns; use null where a size isn't offered.
+// - An item with a single `price` string (one size, or a range) shows it as is.
+// - `signature: true` marks a house favorite with a bloom.
+// - A group's optional `flavors` list syrup options under its items.
+// - A tab's `callout` shows as a note card beside its groups.
+export const menu = {
+  sizeNote: 'Hot drinks 12 · 16 · 20oz  ·  Iced drinks 16 · 24oz',
+  tabs: [
+    {
+      id: 'specials',
+      label: 'Specials',
+      groups: [
+        {
+          title: 'Autumn Specials',
+          sizes: ['S', 'M', 'L'],
+          items: [
+            { name: 'Pumpkin Spice Latte', desc: 'Espresso & milk with FIF pumpkin spice syrup', prices: ['4.95', '5.95', '6.95'], signature: true },
+            { name: 'Jack-O-Lantern Cold Brew', desc: 'Cold brew with sweet cream, pumpkin spice & cheesecake, whip cream and caramel drizzle', prices: ['5.75', '6.75', null] },
+            { name: "Frankenstein's Matcha", desc: 'Ceremonial matcha with FIF lavender cold foam · 16oz', price: '7.05' },
+            { name: 'Apple Pie Latte', desc: 'Espresso & milk with FIF brown sugar cinnamon & apple syrup', prices: ['4.95', '5.95', '6.95'] },
+            { name: 'Pumpkin Chai Latte', desc: 'Chai latte with FIF pumpkin spice syrup', prices: ['4.95', '5.95', '6.95'] },
+          ],
+        },
+        {
+          title: 'FIF Specials',
+          sizes: ['S', 'M', 'L'],
+          items: [
+            { name: 'Texas Star', desc: 'Espresso, half & half, caramel, vanilla, cold foam and caramel drizzle', prices: ['4.75', '5.75', '6.75'], signature: true },
+            { name: 'Frosted Cookie', desc: 'Sweet cream, FIF brown sugar cinnamon syrup and espresso', prices: ['4.85', '5.85', '6.85'] },
+            { name: 'Coconut Bliss', desc: 'Chocolate milk, espresso, coconut syrup, cold foam & chocolate drizzle', prices: ['4.70', '5.70', '6.70'] },
+            { name: 'Coconut Cream Cold Brew', desc: 'Cold brew, half & half or sweet cream and coconut cold foam', prices: ['5.45', '6.45', null] },
+            { name: 'Salted Caramel Cheesecake', desc: 'Cold brew, sweet cream, cold foam and caramel drizzle', prices: ['5.45', '6.45', null] },
+            { name: 'Pour Over', desc: '28oz · serves up to 4', price: '8.50' },
+            { name: 'French Press', desc: '17oz · serves up to 2', price: '5.50 – 8.75' },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'coffee',
+      label: 'Coffee',
+      groups: [
+        {
+          title: 'Coffee',
+          sizes: ['S', 'M', 'L'],
+          items: [
+            { name: 'Double Espresso', desc: '2oz', price: '3.00' },
+            { name: 'House Coffee', prices: ['2.55', '3.60', '4.35'] },
+            { name: 'Iced Coffee', prices: ['2.85', '3.60', null] },
+            { name: 'Cold Brew', prices: ['4.95', '5.95', null] },
+            { name: 'Cappuccino', prices: ['4.65', '5.65', '6.65'] },
+            { name: 'Mocha', prices: ['4.95', '5.95', '6.95'] },
+            { name: 'Cortado', price: '3.65' },
+            { name: 'Americano', prices: ['3.95', '4.95', '5.95'] },
+            { name: 'Latte', prices: ['4.75', '5.75', '6.75'] },
+          ],
+        },
+        {
+          title: 'Extras & Flavors',
+          items: [
+            { name: 'Espresso Shot', desc: '1oz', price: '1.50' },
+            { name: 'CBD Infusion', desc: '15mg', price: '2.00' },
+          ],
+          flavors: [
+            { label: 'Sugar free', list: ['Vanilla', 'Caramel', 'Coconut', 'Hazelnut', 'White Chocolate', 'Irish Cream', 'Peach'] },
+            {
+              label: 'Regular',
+              list: ['Vanilla', 'Caramel', 'Cheesecake', 'Lavender', 'Peppermint', 'Salted Caramel', 'Brown Sugar Cinnamon', 'Raspberry', 'Strawberry', 'Watermelon', 'Pomegranate', 'Pineapple', 'Blue Raspberry', 'Cherry', 'Orange'],
+            },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'not-coffee',
+      label: 'Not Coffee',
+      groups: [
+        {
+          title: 'Not Coffee',
+          sizes: ['S', 'M', 'L'],
+          items: [
+            { name: 'Fresh Squeezed Lemonade', prices: ['4.95', '5.95', null] },
+            { name: 'Tickle Me Pink', desc: 'Fresh squeezed pink lemonade with sugar-free Red Bull', prices: ['5.95', '6.95', null], signature: true },
+            { name: 'Classic Chai Latte', prices: ['4.75', '5.75', '6.75'] },
+            { name: 'Iced Tea', prices: ['3.90', '4.90', null] },
+            { name: 'Matcha Latte', desc: '16oz', price: '6.75' },
+            { name: 'Hot Chocolate', prices: ['3.90', '4.90', '5.90'] },
+            { name: 'Hot Tea', prices: ['3.75', '4.75', '5.75'] },
+            { name: 'Juice', desc: 'Apple or orange', price: '1.90 – 2.45' },
+            { name: 'Grape Juice', price: '1.90' },
+          ],
+        },
+        {
+          title: 'Dirty Sodas',
+          items: [
+            { name: 'Pink Starburst', desc: 'Sprite, watermelon, pineapple & a splash of cream · 24oz', price: '5.75' },
+            { name: 'Dr. Vanilla', desc: 'Dr Pepper or Diet Dr Pepper, vanilla & a splash of cream · 24oz', price: '5.75' },
+            { name: 'Cherry Vanilla Bliss', desc: 'Coca-Cola, cherry, vanilla & a splash of cream · 24oz', price: '5.75' },
+            { name: 'Orange Creamsicle', desc: 'Sunkist, vanilla & a splash of cream · 24oz', price: '5.75' },
+          ],
+        },
+        {
+          title: 'Kids Menu',
+          sizes: ['S', 'M', 'L'],
+          items: [
+            { name: 'Kid Coffee', desc: "Caffeine free, iced or hot · S'mores, caramel or chocolate · 12oz", price: '4.00' },
+            { name: 'Hot Chocolate', desc: 'Creamy chocolate milk at kids temp with whipped cream', prices: ['3.90', '4.90', '5.90'] },
+          ],
+        },
+      ],
+    },
+    {
+      id: 'bites',
+      label: 'Quick Bites',
+      callout: "Check out our bakery cases for today's available pastries.",
+      groups: [
+        {
+          title: 'Quick Bites',
+          items: [
+            { name: 'Egg Bites (2)', desc: 'Western, ham & cheese, or cheese · while supplies last', price: '4.75' },
+            { name: 'Ham & Swiss Croissant', desc: 'Ham & Swiss baked into a butter croissant · while supplies last', price: '5.95' },
+            { name: 'Biscuits & Gravy', desc: 'House made biscuits and gravy · Only available on Saturdays', price: '5.95' },
+          ],
+        },
+      ],
+    },
+  ],
+}
 
 // TODO: replace with real reviews (e.g. copied from your Google Business
 // Profile, with permission). While any entry has `sample: true`, the Reviews

@@ -49,7 +49,7 @@ const mailto = `mailto:${site.eventsEmail}?subject=${encodeURIComponent('Event i
         <p v-reveal class="eyebrow events__eyebrow">Host with us</p>
         <h2 v-reveal="100" class="h-section">Celebrate <em>among the blooms.</em></h2>
         <p v-reveal="150" class="events__lede">
-          From intimate showers to full-café buyouts, we'll dress the room in seasonal florals and
+          From intimate showers to your next birthday bash, we'll dress the room in seasonal florals and
           build a pastry and coffee bar around your day.
         </p>
 
