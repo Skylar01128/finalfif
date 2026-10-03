@@ -1,0 +1,229 @@
+/* Design tokens — warm cream base, brand green (#2ab73d) + charcoal (#353c40).
+ * --primary is the exact brand green: use it for fills, bands, icons and large
+ * decorative shapes. It is too light for text on cream (2.5:1), so text, links
+ * and buttons use --primary-ink, the lightest shade that passes WCAG AA. */
+:root {
+  --cream: #fbf6ee;
+  --flour: #fffdf9;
+  --oat: #f1e6d8;
+  --mist: #e8ebec;
+
+  --primary: #2ab73d;
+  --primary-ink: #1e812b;
+  --primary-light: #5fd06f; /* small text on charcoal */
+  --primary-soft: #e6f5e8;
+  --primary-deep: #1a5c26;
+
+  --ink: #353c40;
+  --ink-soft: #5e676c;
+
+  /* A single floral accent, used sparingly (petals, one event slide). */
+  --petal: #f2c4c4;
+
+  --line: rgba(53, 60, 64, 0.14);
+
+  --font-display: 'Fraunces', Georgia, 'Times New Roman', serif;
+  --font-body: 'DM Sans', system-ui, -apple-system, 'Segoe UI', sans-serif;
+
+  --radius: 20px;
+  --radius-lg: 32px;
+  --section-y: clamp(80px, 11vw, 168px);
+  --gutter: clamp(16px, 4vw, 48px);
+  --max: 1200px;
+  --nav-h: 76px;
+  --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  background: var(--cream);
+  color: var(--ink);
+  font-family: var(--font-body);
+  font-size: 1.0625rem;
+  line-height: 1.6;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+a {
+  color: inherit;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-display);
+  font-weight: 400;
+  line-height: 1.06;
+  letter-spacing: -0.015em;
+  margin: 0;
+}
+
+p,
+ul {
+  margin: 0;
+}
+
+.container {
+  width: 100%;
+  max-width: var(--max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.section {
+  padding-block: var(--section-y);
+}
+
+section[id] {
+  scroll-margin-top: var(--nav-h);
+}
+
+.eyebrow {
+  font-size: 0.75rem;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--primary-ink);
+}
+
+.h-section {
+  font-size: clamp(2.25rem, 5vw, 4rem);
+}
+
+.h-section em,
+.hero__title em {
+  font-style: italic;
+  color: var(--primary-ink);
+}
+
+.lede {
+  color: var(--ink-soft);
+  max-width: 46ch;
+}
+
+/* Buttons */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5em;
+  padding: 0.95em 1.7em;
+  border-radius: 999px;
+  border: 1.5px solid var(--ink);
+  font: 500 0.95rem/1 var(--font-body);
+  text-decoration: none;
+  cursor: pointer;
+  transition:
+    transform 0.35s var(--ease),
+    background-color 0.35s var(--ease),
+    border-color 0.35s var(--ease),
+    color 0.35s var(--ease);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn--solid {
+  background: var(--primary-ink);
+  border-color: var(--primary-ink);
+  color: #fff;
+}
+
+.btn--solid:hover {
+  background: var(--ink);
+  border-color: var(--ink);
+}
+
+.btn--ghost {
+  background: transparent;
+  color: var(--ink);
+}
+
+.btn--ghost:hover {
+  background: var(--ink);
+  color: var(--cream);
+}
+
+.btn--light {
+  background: var(--cream);
+  border-color: var(--cream);
+  color: var(--ink);
+}
+
+.btn--light:hover {
+  background: var(--primary-light);
+  border-color: var(--primary-light);
+}
+
+.btn--sm {
+  padding: 0.7em 1.2em;
+  font-size: 0.875rem;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary-ink);
+  outline-offset: 3px;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* Scroll reveal (see directives/reveal.js) */
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition:
+    opacity 0.8s var(--ease),
+    transform 0.8s var(--ease);
+  transition-delay: var(--delay, 0ms);
+}
+
+.reveal.is-visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation: none !important;
+    transition-duration: 0.01ms !important;
+  }
+
+  .reveal {
+    opacity: 1;
+    transform: none;
+  }
+}
