@@ -203,9 +203,9 @@ export const reviews = [
 
 export const events = {
   slides: [
-    { src: '/public/images/bridal.jpg', tone: 'green', caption: 'Bridal & baby showers' },
-    { src: '/public/images/grad.jpg', tone: 'petal', caption: 'Birthday brunches' },
-    { src: '/public/images/trivia.jpg', tone: 'oat', caption: 'Bi-Weekly Trivia Nights' },
+    { src: '/images/bridal.jpg', tone: 'green', caption: 'Bridal & baby showers' },
+    { src: '/images/grad.jpg', tone: 'petal', caption: 'Birthday brunches' },
+    { src: '/images/trivia.jpg', tone: 'oat', caption: 'Bi-Weekly Trivia Nights' },
   ],
   types: ['Showers', 'Birthdays', 'Workshops', 'Book clubs'],
   details: [
