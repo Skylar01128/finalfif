@@ -145,7 +145,7 @@ export const menu = {
           items: [
             { name: 'Egg Bites (2)', desc: 'Western, ham & cheese, or cheese · while supplies last', price: '4.75' },
             { name: 'Ham & Swiss Croissant', desc: 'Ham & Swiss baked into a butter croissant · while supplies last', price: '5.95' },
-            { name: 'Biscuits & Gravy', desc: 'House made biscuits and gravy · Only available on Saturdays', price: '5.95', signature: true },
+            { name: 'Biscuits & Gravy', desc: 'House made biscuits and gravy · Only available on Saturdays', price: '5.95', signature: true, bold: true },
           ],
         },
       ],
@@ -209,7 +209,7 @@ export const events = {
   ],
   types: ['Showers', 'Birthdays', 'Workshops', 'Book clubs'],
   details: [
-    'Up to 70 guests',
+    'Up to 66 guests',
     'Available Mon-Sat after café hours and all day Sunday'
   ],
 }
@@ -217,7 +217,6 @@ export const events = {
 // Trivia nights. Add a night by appending { date, theme, blurb }; dates are
 // YYYY-MM-DD in the shop's time zone. Past nights drop off the site
 // automatically, and the soonest upcoming one becomes the featured card.
-// TODO: replace these placeholder themes, dates and details with the real lineup.
 export const trivia = {
   cadence: 'Every other Thursday',
   start: '19:00',
@@ -228,5 +227,6 @@ export const trivia = {
     { date: '2026-10-22', theme: "Halloween General", blurb: 'Come in costume and find out how much you really know about the spookiest night of the year.' },
     { date: '2026-11-05', theme: 'Gilmore Girls', blurb: "Think you can keep up with Lorelai's pop-culture references? Pour a coffee and prove it." },
     { date: '2026-11-19', theme: 'Friends', blurb: 'A Friendsgiving warm-up, all about the show that made the coffee shop the place to be.' },
+    { date: '2026-12-03', theme: 'Harry Potter', blurb: 'Christmas at Hogwarts comes early. Grab a cocoa, pick your house and test your wizarding knowledge.' },
   ],
 }

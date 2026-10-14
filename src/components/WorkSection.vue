@@ -5,7 +5,7 @@ const amenities = [
   { icon: 'wifi', title: 'Fast, free Wi-Fi', text: 'Strong enough for video calls, no time limit.' },
   { icon: 'plug', title: 'Outlets at every window seat', text: 'Plus outlets in the backroom and lobby.' },
   { icon: 'clock', title: 'Quiet hours, 7–10am weekdays', text: 'Soft music, low chatter, focus-friendly.' },
-  { icon: 'sparkle', title: 'Clean Restrooms', text: 'We take pride in provideing spotless restrooms for our guests.' },
+  { icon: 'sparkle', title: 'Clean Restrooms', text: 'We take pride in providing spotless restrooms for our guests.' },
   // { icon: 'cup', title: 'Bottomless drip on laptop days', text: '$5 all day — just ask at the counter.' },
 ]
 
@@ -31,7 +31,7 @@ const icons = {
 
       <div class="work__copy">
         <p v-reveal class="eyebrow">Work from here</p>
-        <h2 v-reveal="100" class="h-section">A desk with <em>a view of the peonies.</em></h2>
+        <h2 v-reveal="100" class="h-section">A desk with <em>a an espresso bar.</em></h2>
         <p v-reveal="150" class="lede">
           Trade the kitchen table for natural light, good coffee and a little greenery. Stay as
           long as you like.
