@@ -45,6 +45,7 @@ const petals = [
         <div v-reveal="300" class="hero__actions">
           <a href="#menu" class="btn btn--solid">See the menu</a>
           <a href="#events" class="btn btn--ghost">Host an event</a>
+          <a href="#trivia" class="btn btn--ghost">Join trivia night</a>
         </div>
         <div v-reveal="400" class="hero__status"><OpenStatus /></div>
       </div>

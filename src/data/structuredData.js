@@ -12,6 +12,28 @@ function parseCityLine(line) {
   return { locality, region, postalCode }
 }
 
+function postalAddress(address) {
+  const { locality, region, postalCode } = parseCityLine(address.line2)
+  return {
+    '@type': 'PostalAddress',
+    streetAddress: address.line1,
+    addressLocality: locality,
+    addressRegion: region,
+    postalCode,
+    addressCountry: 'US',
+  }
+}
+
+// "2026-11-05", "19:00", "America/Chicago" -> "2026-11-05T19:00:00-06:00".
+// The offset is read at noon UTC that day, after any 2am DST switch, so it's
+// right for evening events on the day the clocks change too.
+function withOffset(ymd, hhmm, timeZone) {
+  const tz = new Intl.DateTimeFormat('en-US', { timeZone, timeZoneName: 'longOffset' })
+    .formatToParts(new Date(`${ymd}T12:00:00Z`))
+    .find((p) => p.type === 'timeZoneName').value
+  return `${ymd}T${hhmm}:00${tz.replace('GMT', '') || 'Z'}`
+}
+
 // One Offer per available size, or a single Offer for one-price items.
 // A range like "5.50 – 8.75" is reported as its lowest price.
 function offersFor(item, sizes = []) {
@@ -24,22 +46,15 @@ function offersFor(item, sizes = []) {
 }
 
 export function cafeSchema(site, menu) {
-  const { locality, region, postalCode } = parseCityLine(site.address.line2)
-
   return {
     '@context': 'https://schema.org',
     '@type': 'CafeOrCoffeeShop',
     name: site.name,
+    url: `${site.url}/`,
+    image: `${site.url}/images/hero.jpg`,
     description:
       'A flower-filled neighborhood café for slow mornings, focused afternoons, and celebrations worth remembering.',
-    address: {
-      '@type': 'PostalAddress',
-      streetAddress: site.address.line1,
-      addressLocality: locality,
-      addressRegion: region,
-      postalCode,
-      addressCountry: 'US',
-    },
+    address: postalAddress(site.address),
     telephone: site.phone,
     email: site.email,
     hasMap: `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(site.mapQuery)}`,
@@ -73,4 +88,29 @@ export function cafeSchema(site, menu) {
         })),
     },
   }
+}
+
+// One Event per upcoming trivia night, so nights can appear in Google's event
+// results. Past nights are left out, which means they only drop off after a
+// rebuild; rebuild whenever trivia.nights changes.
+export function triviaSchema(site, trivia, today) {
+  return trivia.nights
+    .filter((n) => n.date >= today)
+    .sort((a, b) => a.date.localeCompare(b.date))
+    .map((n) => ({
+      '@context': 'https://schema.org',
+      '@type': 'Event',
+      name: `${n.theme} Trivia Night at ${site.name}`,
+      description: n.blurb,
+      url: `${site.url}/#trivia`,
+      image: `${site.url}/images/trivia.jpg`,
+      startDate: withOffset(n.date, trivia.start, site.timeZone),
+      endDate: withOffset(n.date, trivia.end, site.timeZone),
+      eventStatus: 'https://schema.org/EventScheduled',
+      eventAttendanceMode: 'https://schema.org/OfflineEventAttendanceMode',
+      isAccessibleForFree: true,
+      offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD', availability: 'https://schema.org/InStock', url: `${site.url}/#trivia` },
+      location: { '@type': 'Place', name: site.name, address: postalAddress(site.address) },
+      organizer: { '@type': 'Organization', name: site.name, url: `${site.url}/` },
+    }))
 }

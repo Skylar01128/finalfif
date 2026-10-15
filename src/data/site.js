@@ -3,6 +3,9 @@
 
 export const site = {
   name: 'Flower In Flour',
+  // Live site address, no trailing slash. Used for search-engine links and
+  // previews. If it changes, update public/robots.txt and sitemap.xml too.
+  url: 'https://flowerinflour.com',
   // TODO: real address. `mapQuery` is what the Google Map searches for; the
   // exact Google Business Profile name + street address pins it most reliably.
   address: { line1: '6915 Bandera Rd #104', line2: 'San Antonio, TX 78251' },
