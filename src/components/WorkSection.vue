@@ -31,7 +31,7 @@ const icons = {
 
       <div class="work__copy">
         <p v-reveal class="eyebrow">Work from here</p>
-        <h2 v-reveal="100" class="h-section">A desk with <em>a an espresso bar.</em></h2>
+        <h2 v-reveal="100" class="h-section">A desk with <em> an espresso bar.</em></h2>
         <p v-reveal="150" class="lede">
           Trade the kitchen table for natural light, good coffee and a little greenery. Stay as
           long as you like.

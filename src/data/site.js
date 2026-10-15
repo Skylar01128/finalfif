@@ -6,15 +6,14 @@ export const site = {
   // Live site address, no trailing slash. Used for search-engine links and
   // previews. If it changes, update public/robots.txt and sitemap.xml too.
   url: 'https://flowerinflour.com',
-  // TODO: real address. `mapQuery` is what the Google Map searches for; the
   // exact Google Business Profile name + street address pins it most reliably.
   address: { line1: '6915 Bandera Rd #104', line2: 'San Antonio, TX 78251' },
   mapQuery: '6915 Bandera Rd #104, San Antonio',
-  timeZone: 'America/Chicago', // TODO: shop's time zone (drives "Open now")
-  phone: '(210) 251-4324', // TODO
-  email: 'admin@flowerinflour.com', // TODO
-  eventsEmail: 'events@flowerinflour.com', // TODO
-  instagram: 'flower_in_flour_', // TODO
+  timeZone: 'America/Chicago',
+  phone: '(210) 251-4324',
+  email: 'admin@flowerinflour.com',
+  eventsEmail: 'events@flowerinflour.com',
+  instagram: 'flower_in_flour_',
   // days: 0 = Sunday … 6 = Saturday. Times are 24h in the shop's time zone.
   // An entry with `note` instead of open/close shows that text and counts as
   // closed for "Open now".
@@ -156,7 +155,6 @@ export const menu = {
   ],
 }
 
-// TODO: replace with real reviews (e.g. copied from your Google Business
 // Profile, with permission). While any entry has `sample: true`, the Reviews
 // section shows a visible "sample reviews" notice so these can't ship unnoticed.
 export const reviews = [
