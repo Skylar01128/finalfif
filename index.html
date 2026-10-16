@@ -7,9 +7,11 @@
     <meta name="description" content="A flower-filled San Antonio café with fresh coffee, pastries and room to work. Join our bi-weekly trivia nights or book the space for showers and parties." />
     <meta name="theme-color" content="#FBF6EE" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <!-- The hero photo is rendered by Vue, so preload it to start the download before the JS runs. -->
+    <link rel="preload" as="image" href="/images/hero.jpg" fetchpriority="high" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,700&family=Fraunces:ital,opsz,wght@0,9..144,300..600;1,9..144,300..600&display=swap" rel="stylesheet" /> -->
   </head>
   <body>
     <div id="app"></div>

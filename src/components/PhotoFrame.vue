@@ -33,6 +33,7 @@ const rad = (deg) => (deg * Math.PI) / 180
       :src="src"
       :alt="alt"
       :loading="eager ? 'eager' : 'lazy'"
+      :fetchpriority="eager ? 'high' : undefined"
       decoding="async"
       @error="failed = true"
     />

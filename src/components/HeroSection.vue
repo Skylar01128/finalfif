@@ -53,7 +53,7 @@ const petals = [
       <div v-reveal="150" class="hero__media">
         <PhotoFrame
           src="/images/hero.jpg"
-          alt="A latte on a marble table surrounded by fresh flowers"
+          alt="A green velvet sofa beneath draped white fabric and potted trees in the café's lounge"
           shape="arch"
           tone="green"
           eager
