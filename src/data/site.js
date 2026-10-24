@@ -224,10 +224,10 @@ export const trivia = {
   end: '21:00',
   details: ['Free to play', 'Prizes for the top 3', 'Seating First Come First Served'],
   nights: [
-    { date: '2026-10-08', theme: 'Horror Movies', blurb: 'Final girls, famous last words and the scores that still give you chills.' },
     { date: '2026-10-22', theme: "Halloween General", blurb: 'Come in costume and find out how much you really know about the spookiest night of the year.' },
     { date: '2026-11-05', theme: 'Gilmore Girls', blurb: "Think you can keep up with Lorelai's pop-culture references? Pour a coffee and prove it." },
     { date: '2026-11-19', theme: 'Friends', blurb: 'A Friendsgiving warm-up, all about the show that made the coffee shop the place to be.' },
     { date: '2026-12-03', theme: 'Harry Potter', blurb: 'Christmas at Hogwarts comes early. Grab a cocoa, pick your house and test your wizarding knowledge.' },
+    { date: '2026-12-17', theme: 'Christmas', blurb: 'Carols, classic movies and holiday traditions from around the world. Wear your ugliest sweater and bring your festive best.' },
   ],
 }
