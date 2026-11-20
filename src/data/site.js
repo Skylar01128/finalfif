@@ -229,5 +229,6 @@ export const trivia = {
     { date: '2026-11-19', theme: 'Friends', blurb: 'A Friendsgiving warm-up, all about the show that made the coffee shop the place to be.' },
     { date: '2026-12-03', theme: 'Harry Potter', blurb: 'Christmas at Hogwarts comes early. Grab a cocoa, pick your house and test your wizarding knowledge.' },
     { date: '2026-12-17', theme: 'Christmas', blurb: 'Carols, classic movies and holiday traditions from around the world. Wear your ugliest sweater and bring your festive best.' },
+    { date: '2027-01-07', theme: 'Decades', blurb: 'Start the new year with a trip back in time through the music, movies and fads that defined each decade. Dressing for your favorite era is encouraged!' },
   ],
 }
