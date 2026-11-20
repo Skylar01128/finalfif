@@ -69,6 +69,9 @@ const icsHref = (n) => {
         <p v-reveal="150" class="lede">
           Grab a latte, round up your team and test what you know. A new theme every trivia night, from {{ timeRange }}.
         </p>
+        <ul v-reveal="200" class="trivia__details" aria-label="Trivia details">
+          <li v-for="d in trivia.details" :key="d">{{ d }}</li>
+        </ul>
       </header>
 
       <div class="trivia__grid">
@@ -86,21 +89,28 @@ const icsHref = (n) => {
             <h3 id="trivia-next" class="ticket__theme">{{ next.theme }}</h3>
             <p class="ticket__blurb">{{ next.blurb }}</p>
 
+            <div v-if="next.warmup" class="warmup">
+              <p class="warmup__question"><span class="warmup__label">Warm-up:</span> {{ next.warmup.question }}</p>
+              <details class="warmup__reveal">
+                <summary>
+                  <span class="warmup__show">Reveal answer</span>
+                  <span class="warmup__hide">Hide answer</span>
+                </summary>
+                <p class="warmup__answer">{{ next.warmup.answer }}</p>
+              </details>
+            </div>
+
             <p class="ticket__when">
               <time :datetime="`${next.date}T${trivia.start}`">{{ parts(next.date).full }}</time>
               · {{ timeRange }}
             </p>
 
-            <ul class="ticket__details" aria-label="Trivia details">
-              <li v-for="d in trivia.details" :key="d">{{ d }}</li>
-            </ul>
-
-            <div class="ticket__actions">
+            <!-- <div class="ticket__actions"> -->
               <!-- <a :href="reserveHref(next)" class="btn btn--solid">Reserve a team table</a> -->
-              <a :href="icsHref(next)" :download="`trivia-${next.date}.ics`" class="ticket__cal">
+              <!-- <a :href="icsHref(next)" :download="`trivia-${next.date}.ics`" class="ticket__cal">
                 Add to calendar <span aria-hidden="true">→</span>
               </a>
-            </div>
+            </div> -->
           </div>
         </article>
 
@@ -286,17 +296,61 @@ const icsHref = (n) => {
 .ticket__blurb a {
   color: var(--primary-ink);
 }
+/* Warm-up question: a sample of the night's theme with a tap-to-reveal answer. */
+.warmup {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  max-width: 44ch;
+}
+.warmup__label {
+  font-weight: 500;
+  color: var(--ink);
+}
+.warmup__question {
+  color: var(--ink-soft);
+}
+.warmup__reveal summary {
+  display: inline-block;
+  list-style: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  font-weight: 500;
+  color: var(--primary-ink);
+}
+.warmup__reveal summary::-webkit-details-marker {
+  display: none;
+}
+.warmup__reveal summary:hover {
+  text-decoration: underline;
+}
+.warmup__hide,
+.warmup__reveal[open] .warmup__show {
+  display: none;
+}
+.warmup__reveal[open] .warmup__hide {
+  display: inline;
+}
+.warmup__answer {
+  margin-top: 2px;
+  font-family: var(--font-display);
+  font-style: italic;
+  font-size: 1.1rem;
+  color: var(--primary-ink);
+}
+
 .ticket__when {
   font-weight: 500;
 }
-.ticket__details {
+.trivia__details {
   list-style: none;
   padding: 0;
+  margin: 0;
   display: flex;
   flex-wrap: wrap;
   gap: 8px;
 }
-.ticket__details li {
+.trivia__details li {
   padding: 0.45em 1em;
   border: 1px solid var(--line);
   border-radius: 999px;
