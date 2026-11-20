@@ -218,6 +218,8 @@ export const events = {
 // Trivia nights. Add a night by appending { date, theme, blurb }; dates are
 // YYYY-MM-DD in the shop's time zone. Past nights drop off the site
 // automatically, and the soonest upcoming one becomes the featured card.
+// Optional `motif` decorates the featured card: 'bolt', 'snowflake', 'mug',
+// 'record' or 'pumpkin' (see ThemeMotif.vue). Leave it off for the default "?".
 export const trivia = {
   cadence: 'Every other Thursday',
   start: '19:00',
@@ -227,8 +229,8 @@ export const trivia = {
     { date: '2026-10-22', theme: "Halloween General", blurb: 'Come in costume and find out how much you really know about the spookiest night of the year.' },
     { date: '2026-11-05', theme: 'Gilmore Girls', blurb: "Think you can keep up with Lorelai's pop-culture references? Pour a coffee and prove it." },
     { date: '2026-11-19', theme: 'Friends', blurb: 'A Friendsgiving warm-up, all about the show that made the coffee shop the place to be.' },
-    { date: '2026-12-03', theme: 'Harry Potter', blurb: 'Christmas at Hogwarts comes early. Grab a cocoa, pick your house and test your wizarding knowledge.' },
-    { date: '2026-12-17', theme: 'Christmas', blurb: 'Carols, classic movies and holiday traditions from around the world. Wear your ugliest sweater and bring your festive best.' },
-    { date: '2027-01-07', theme: 'Decades', blurb: 'Start the new year with a trip back in time through the music, movies and fads that defined each decade. Dressing for your favorite era is encouraged!' },
+    { date: '2026-12-03', theme: 'Harry Potter', motif: 'bolt', blurb: 'Christmas at Hogwarts comes early. Grab a cocoa, pick your house and test your wizarding knowledge.' },
+    { date: '2026-12-17', theme: 'Christmas', motif: 'snowflake', blurb: 'Carols, classic movies and holiday traditions from around the world. Wear your ugliest sweater and bring your festive best.' },
+    { date: '2027-01-07', theme: 'Decades', motif: 'record', blurb: 'Start the new year with a trip back in time through the music, movies and fads that defined each decade. Dressing for your favorite era is encouraged!' },
   ],
 }

@@ -3,6 +3,7 @@ import { computed } from 'vue'
 import { trivia, site } from '../data/site'
 import { formatTime } from '../utils/hours'
 import Bloom from './Bloom.vue'
+import ThemeMotif, { MOTIFS } from './ThemeMotif.vue'
 
 // Today's date in the shop's time zone as YYYY-MM-DD, so string comparison
 // against trivia.nights works no matter where the visitor is browsing from.
@@ -13,6 +14,7 @@ const upcoming = computed(() =>
 )
 const next = computed(() => upcoming.value[0])
 const later = computed(() => upcoming.value.slice(1, 4))
+const motif = computed(() => (MOTIFS.includes(next.value?.motif) ? next.value.motif : null))
 
 // Calendar dates carry no time zone, so format them as UTC to avoid drift.
 const asDate = (ymd) => new Date(`${ymd}T00:00:00Z`)
@@ -77,7 +79,8 @@ const icsHref = (n) => {
             <span class="ticket__weekday">{{ parts(next.date).weekday }}</span>
           </div>
 
-          <div class="ticket__body">
+          <div class="ticket__body" :class="{ 'ticket__body--motif': motif }">
+            <ThemeMotif v-if="motif" :name="motif" class="ticket__motif" />
             <span class="ticket__badge"><Bloom :size="14" /> {{ relative(next.date) }}</span>
             <p class="ticket__label">Up next · theme</p>
             <h3 id="trivia-next" class="ticket__theme">{{ next.theme }}</h3>
@@ -233,6 +236,21 @@ const icsHref = (n) => {
   font-size: clamp(10rem, 18vw, 15rem);
   line-height: 1;
   color: var(--primary-soft);
+  pointer-events: none;
+}
+/* A themed shape takes the question mark's place when the night has a motif. */
+.ticket__body--motif::before {
+  content: none;
+}
+.ticket__motif {
+  position: absolute;
+  right: clamp(12px, 3vw, 36px);
+  top: clamp(16px, 3vw, 32px);
+  z-index: -1;
+  width: clamp(8rem, 15vw, 12rem);
+  height: auto;
+  color: var(--primary-soft);
+  transform: rotate(-8deg);
   pointer-events: none;
 }
 .ticket__badge {
