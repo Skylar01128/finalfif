@@ -1,6 +1,6 @@
 <script setup>
 import { computed } from 'vue'
-import { trivia, site } from '../data/site'
+import { trivia, triviaColors, site } from '../data/site'
 import { formatTime } from '../utils/hours'
 import Bloom from './Bloom.vue'
 import ThemeMotif, { MOTIFS } from './ThemeMotif.vue'
@@ -15,6 +15,7 @@ const upcoming = computed(() =>
 const next = computed(() => upcoming.value[0])
 const later = computed(() => upcoming.value.slice(1, 4))
 const motif = computed(() => (MOTIFS.includes(next.value?.motif) ? next.value.motif : null))
+const stubColor = computed(() => triviaColors[next.value?.color] ?? null)
 
 // Calendar dates carry no time zone, so format them as UTC to avoid drift.
 const asDate = (ymd) => new Date(`${ymd}T00:00:00Z`)
@@ -76,7 +77,11 @@ const icsHref = (n) => {
 
       <div class="trivia__grid">
         <article v-if="next" v-reveal="200" class="ticket" aria-labelledby="trivia-next">
-          <div class="ticket__stub">
+          <div
+            class="ticket__stub"
+            :class="{ 'ticket__stub--themed': stubColor }"
+            :style="stubColor && { '--stub-bg': stubColor }"
+          >
             <span class="ticket__month">{{ parts(next.date).month }}</span>
             <span class="ticket__day">{{ parts(next.date).day }}</span>
             <span class="ticket__weekday">{{ parts(next.date).weekday }}</span>
@@ -224,6 +229,16 @@ const icsHref = (n) => {
 }
 .ticket__weekday {
   color: rgba(251, 246, 238, 0.75);
+}
+/* Theme-colored stub: the green month and faded weekday lose contrast on
+   colored backgrounds, so both switch to near-solid cream. */
+.ticket__stub--themed {
+  background: var(--stub-bg);
+  transition: background-color 0.4s var(--ease);
+}
+.ticket__stub--themed .ticket__month,
+.ticket__stub--themed .ticket__weekday {
+  color: rgba(251, 246, 238, 0.92);
 }
 
 .ticket__body {

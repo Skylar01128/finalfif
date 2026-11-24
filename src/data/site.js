@@ -222,6 +222,8 @@ export const events = {
 // 'record' or 'pumpkin' (see ThemeMotif.vue). Leave it off for the default "?".
 // Optional `warmup: { question, answer }` adds a sample question with a
 // tap-to-reveal answer to the featured card.
+// Optional `color` tints the featured card's date panel; use a name from
+// triviaColors below. Leave it off for the default charcoal.
 export const trivia = {
   cadence: 'Every other Thursday',
   start: '19:00',
@@ -231,11 +233,25 @@ export const trivia = {
     { date: '2026-10-22', theme: "Halloween General", blurb: 'Come in costume and find out how much you really know about the spookiest night of the year.' },
     { date: '2026-11-05', theme: 'Gilmore Girls', blurb: "Think you can keep up with Lorelai's pop-culture references? Pour a coffee and prove it." },
     { date: '2026-11-19', theme: 'Friends', blurb: 'A Friendsgiving warm-up, all about the show that made the coffee shop the place to be.' },
-    { date: '2026-12-03', theme: 'Harry Potter', motif: 'bolt', blurb: 'Christmas at Hogwarts comes early. Grab a cocoa, pick your house and test your wizarding knowledge.',
+    { date: '2026-12-03', theme: 'Harry Potter', motif: 'bolt', color: '', blurb: 'Christmas at Hogwarts comes early. Grab a cocoa, pick your house and test your wizarding knowledge.',
       warmup: { question: 'What gift does Harry receive anonymously on his first Christmas at Hogwarts?', answer: 'An Invisibility Cloak' } },
-    { date: '2026-12-17', theme: 'Christmas', motif: 'snowflake', blurb: 'Carols, classic movies and holiday traditions from around the world. Wear your ugliest sweater and bring your festive best.',
+    { date: '2026-12-17', theme: 'Christmas', motif: 'snowflake', color: 'red', blurb: 'Carols, classic movies and holiday traditions from around the world. Wear your ugliest sweater and bring your festive best.',
       warmup: { question: 'In Home Alone, which city is the McCallister family flying to when they leave Kevin behind?', answer: 'Paris' } },
-    { date: '2027-01-07', theme: 'Decades', motif: 'record', blurb: 'Start the new year with a trip back in time through the music, movies and fads that defined each decade. Dressing for your favorite era is encouraged!',
+    { date: '2027-01-07', theme: 'Decades', motif: 'record', color: 'plum', blurb: 'Start the new year with a trip back in time through the music, movies and fads that defined each decade. Dressing for your favorite era is encouraged!',
       warmup: { question: 'What was the very first music video MTV played when it launched in 1981?', answer: '"Video Killed the Radio Star" by The Buggles' } },
   ],
+}
+
+// Date-panel colors for trivia nights (the `color` field above). Each is dark
+// enough for the cream date text to stay readable; check contrast before
+// adding more.
+export const triviaColors = {
+  red: '#9b2c2c',
+  maroon: '#6e1f2b',
+  orange: '#9a3f14',
+  plum: '#5b2a5e',
+  navy: '#233a5e',
+  teal: '#1f5f5b',
+  pine: '#1f4d3a',
+  coffee: '#5a3a26',
 }
